@@ -1,0 +1,26 @@
+{
+  "name": "CoffeeScript",
+  "version": "0.0.1",
+  "description": "CoffeeScript integration for LightTable",
+  "main": "coffeescript_compiled.js",
+  "dependencies": {
+    "coffee-script": "~1.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davecoates/lt-coffeescript.git"
+  },
+  "keywords": [
+    "LightTable",
+    "coffeescript"
+  ],
+  "author": "Dave Coates",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davecoates/lt-coffeescript/issues"
+  },
+  "homepage": "https://github.com/davecoates/lt-coffeescript"
+}
