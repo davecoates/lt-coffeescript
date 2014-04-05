@@ -1,6 +1,10 @@
-{:+ {:app [(:lt.objs.plugins/load-js ["codemirror/coffee.js" "coffeescript_compiled.js"])]
+{:+ {:app [(:lt.objs.plugins/load-js ["coffeescript_compiled.js"])]
      :editor.coffeescript [:lt.plugins.coffee/on-eval
+                           :lt.plugins.coffee/on-eval.one
                            :lt.plugins.coffee/coffee-result
                            :lt.plugins.coffee/coffee-exception
+                           :lt.plugins.coffee/coffee-watch
+                           :lt.plugins.coffee/watch-src
+                           (:lt.object/add-tag :watchable)
                    :lt.plugins.coffee/eval-on-save]
      :files [(:lt.objs.files/file-types [{:name "CoffeeScript" :exts [:coffee] :mime "text/x-coffeescript" :tags [:editor.coffeescript]}])]}}
