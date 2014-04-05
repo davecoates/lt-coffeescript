@@ -16,3 +16,8 @@ As an alternative I've tested this using a chrome extension that  uses the
 chrome.debugger API. It uses setScriptSource to update loaded scripts which
 gets around the above issues. Still very early version but seems promising. See
 https://github.com/davecoates/chrome-debugger-extension.
+
+### Usage
+
+1. Clone into plugins directory
+2. Install dependencies (coffee-script) with `npm install`
