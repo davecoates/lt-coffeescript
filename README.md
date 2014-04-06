@@ -21,3 +21,4 @@ https://github.com/davecoates/chrome-debugger-extension.
 
 1. Clone into plugins directory
 2. Install dependencies (coffee-script) with `npm install`
+3. For now you'll need to restart LT after step 2 is complete
