@@ -1,6 +1,8 @@
 (ns lt.plugins.coffee
   (:require
    [lt.object       :as object]
+   [lt.objs.files :as files]
+   [lt.objs.console :as console]
    [lt.objs.eval    :as eval]
    [lt.objs.editor.pool :as pool]
    [lt.objs.app :as app]
@@ -8,9 +10,12 @@
    [lt.objs.notifos :as notifos]
    [lt.plugins.watches :as watches]
    [lt.objs.clients :as clients]
+   [lt.objs.clients.devtools :as devtools]
    [lt.objs.sidebar.command :as cmd]
    [lt.objs.plugins :as plugins])
   (:require-macros [lt.macros :refer [behavior]]))
+
+(files/basename "http://www.wherever.com/test/ook.js (old)")
 
 
 (def util-inspect (.-inspect (js/require "util")))
@@ -147,15 +152,17 @@
                               info (if start
                                      (assoc info :meta :meta))
                               info (if (ed/selection? editor)
-                                   (assoc info
-                                     :code (coffee->js (ed/selection editor) {:bare true})
-                                     :meta {:start {:line (-> (ed/->cursor editor "start") :line)}
-                                            :end {:line (-> (ed/->cursor editor "end") :line)}})
-                                   (when form
-                                     (assoc info :pos pos
-                                                 :code (coffee->js form {:bare true})
-                                                 :meta meta)))
-                                    ]
+                                     (assoc info
+                                       :code (coffee->js (ed/selection editor) {:bare true})
+                                       :meta {:start {:line (-> (ed/->cursor editor "start") :line)}
+                                              :end {:line (-> (ed/->cursor editor "end") :line)}})
+                                     (when form
+                                       (assoc info :pos pos
+                                         :code (coffee->js form {:bare false})
+                                         :meta meta)))
+                              info (assoc info :full-source (-> (watches/watched-range editor nil nil src->watch)
+                                                                          (coffee->js)))
+                              ]
                           (when info
                             (object/raise coffee-lang :eval! {:origin editor
                                                               :info info})))
@@ -228,6 +235,7 @@
                        (object/raise editor :editor.result
                                      (coffee->js form)
                                      (assoc end :start-line (:line start)) {:prefix " = "})))})
+
 
 
 (def coffee-lang (object/create ::coffee-lang))
