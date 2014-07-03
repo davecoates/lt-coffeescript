@@ -1,4 +1,3 @@
-node_modules
 .cabal-sandbox
 cabal.sandbox.config
 dist
