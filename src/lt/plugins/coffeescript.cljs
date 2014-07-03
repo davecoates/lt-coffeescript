@@ -158,7 +158,7 @@
                                               :end {:line (-> (ed/->cursor editor "end") :line)}})
                                      (when form
                                        (assoc info :pos pos
-                                         :code (coffee->js form {:bare false})
+                                         :code (coffee->js form {:bare true})
                                          :meta meta)))
                               info (assoc info :full-source (-> (watches/watched-range editor nil nil src->watch)
                                                                           (coffee->js)))
