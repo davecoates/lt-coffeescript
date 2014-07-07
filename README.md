@@ -18,6 +18,4 @@ update scripts in Chrome which gets around the above issues.
 
 ### Usage
 
-1. Clone into plugins directory
-2. Install dependencies (coffee-script) with `npm install`
-3. For now you'll need to restart LT after step 2 is complete
+Install from Plugin Manager or clone this repository into your plugins directory.
