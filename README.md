@@ -13,7 +13,7 @@ This plugin will pass --bare for evaluating individual forms - evaluating the
 whole file will result in a closure.
 
 https://github.com/davecoates/lt-chrometools provides LiveEdit functionality 
-that works with this plugin. It uses the remove debugger protocol to live 
+that works with this plugin. It uses the remote debugging protocol to live 
 update scripts in Chrome which gets around the above issues. 
 
 ### Usage
